@@ -4,7 +4,12 @@ import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Root } from "./routes/root";
+import {
+  Root,
+  loader as rootLoader,
+  action as rootAction,
+} from "./routes/root";
+import Contact from "./routes/contact";
 import { ErrorPage } from "./error-page";
 
 // 1 - A primeira coisa a se fazer é criar um browser router
@@ -23,6 +28,18 @@ const router = createBrowserRouter([
     // 3.2
     element: <Root />,
     errorElement: <ErrorPage />,
+    loader: rootLoader,
+    action: rootAction,
+    children: [
+      {
+        path: "contacts/:contactId",
+        element: <Contact />,
+      },
+    ],
+  },
+  {
+    path: "/teste",
+    element: <button>Teste</button>,
   },
 ]);
 

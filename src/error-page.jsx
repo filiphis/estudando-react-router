@@ -1,4 +1,7 @@
+// {1}
 import { useRouteError } from "react-router-dom";
+
+// 1- o useRouteError é responsável por receber as informações do erro disparado.
 
 export function ErrorPage() {
   const error = useRouteError();
